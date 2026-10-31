@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Rya McKinnon · Game Designer</title>
-<meta name="description" content="Playable browser games by Rya McKinnon: narrative, cozy cooking and pixel-art sports.">
-<meta property="og:title" content="Rya McKinnon · Game Designer">
-<meta property="og:description" content="Seven playable browser games: narrative, cozy cooking and pixel-art sports.">
+<title>Rya McKinnon · Software Engineer &amp; Game Designer</title>
+<meta name="description" content="Rya McKinnon, software engineer and game designer: a published iOS app, playable browser games and interactive web toys.">
+<meta property="og:title" content="Rya McKinnon · Software Engineer &amp; Game Designer">
+<meta property="og:description" content="A published iOS app, four browser games and three interactive web toys.">
 <meta property="og:image" content="images/low-tide-cafe.jpg">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' rx='3' fill='%23ff7a45'/><rect x='4' y='4' width='3' height='3' fill='%2316121f'/><rect x='9' y='4' width='3' height='3' fill='%2316121f'/><rect x='4' y='10' width='8' height='2' fill='%2316121f'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -94,6 +94,23 @@ footer a{color:var(--ink)}
   .about ul{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+.sec{padding-bottom:28px}
+.sec .intro{color:var(--muted);margin:-8px 0 22px;max-width:60ch}
+.bar small{font-family:var(--pix);font-size:11px;letter-spacing:.1em;color:var(--muted)}
+.app{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;text-decoration:none;margin-bottom:40px;transition:transform .18s ease,border-color .18s ease}
+.app:hover{transform:translateY(-4px);border-color:#5a4b7c}
+.app .art{position:relative;min-height:280px;display:grid;place-items:center;background:radial-gradient(90% 90% at 50% 40%,#3a3a40 0%,#141416 60%,#050506 100%);overflow:hidden}
+.app .art img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.app .art img.icon{position:relative;inset:auto;width:136px;height:136px;object-fit:cover;border-radius:30px;box-shadow:0 0 0 1px rgba(255,255,255,.12),0 22px 50px rgba(0,0,0,.6)}
+.app .body{padding:28px 30px}
+.app h3{font-size:30px}
+.store{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin-top:8px;background:var(--ink);color:var(--bg);font-weight:600;font-size:14px;padding:9px 14px;border-radius:10px}
+.store svg{width:16px;height:16px}
+.skills{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:20px}
+.skills h4{font-family:var(--pix);font-weight:400;font-size:11px;letter-spacing:.12em;color:var(--accent2);margin:0 0 10px}
+.skills ul{grid-template-columns:1fr!important}
+@media (max-width:760px){.app{grid-template-columns:1fr}.app .art{min-height:200px}.skills{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -101,95 +118,101 @@ footer a{color:var(--ink)}
   <header>
     <nav>
       <a class="logo" href="#top"><i></i>RYA MCKINNON</a>
-      <ul><li><a href="#games">Games</a></li><li><a href="#about">About</a></li><li><a href="https://github.com/ryaskye">GitHub</a></li></ul>
+      <ul><li><a href="#app">App</a></li><li><a href="#games">Games</a></li><li><a href="#toys">Web toys</a></li><li><a href="#about">About</a></li><li><a href="https://github.com/ryaskye">GitHub</a></li></ul>
     </nav>
   </header>
 
   <section class="hero" id="top">
     <div>
-      <p class="kicker">GAME DESIGNER · PORTFOLIO</p>
-      <h1>Small games with <em>big feelings</em>.</h1>
-      <p class="lede">Narrative drives, cozy kitchens and pixel-art sports, all playable right here in your browser. No downloads, no installs.</p>
+      <p class="kicker">SOFTWARE ENGINEER · GAME DESIGNER</p>
+      <h1>I design and build things people <em>play</em> and <em>use</em>.</h1>
+      <p class="lede">A published iOS app, four browser games and three interactive web toys. Everything below the app runs right here in your browser.</p>
     </div>
     <div class="stats" aria-label="At a glance">
-      <div><b>7</b><span>playable games</span></div>
-      <div><b>3</b><span>genres</span></div>
-      <div><b>0</b><span>installs needed</span></div>
+      <div><b>1</b><span>app on the App Store</span></div>
+      <div><b>4</b><span>playable games</span></div>
+      <div><b>3</b><span>web toys</span></div>
     </div>
   </section>
 
-  <section id="games">
-    <div class="bar">
-      <h2>Games</h2>
-      <div class="chips" role="group" aria-label="Filter games">
-        <button aria-pressed="true" data-f="all">All</button>
-        <button aria-pressed="false" data-f="story">Story</button>
-        <button aria-pressed="false" data-f="cozy">Cozy</button>
-        <button aria-pressed="false" data-f="sports">Sports</button>
+  <section class="sec" id="app">
+    <div class="bar"><h2>App</h2><small>ON THE APP STORE</small></div>
+    <a class="app" href="https://apps.apple.com/us/app/fulltime-athlete/id6801917655" target="_blank" rel="noopener">
+      <div class="art"><img class="icon" src="images/fulltime-athlete-icon.png" alt="Fulltime Athlete app icon"></div>
+      <div class="body">
+        <h3>Fulltime Athlete</h3>
+        <p>An AI training and coaching app for athletes and coaches. Athletes get personalized training plans built around their sport and goals, meal plans, nutrition tracking and recovery plans. Coaches can generate drills for any sport and build, edit and save full practice plans. Streaks and XP levels keep everyone coming back.</p>
+        <div class="tags"><span class="g">iOS</span><span>Published</span><span>AI coaching</span><span>Health &amp; Fitness</span><span>iPhone · iPad</span></div>
+        <span class="store"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.5 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.3 1.2 9.7.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-3.9zM14 5.3c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.8-1.4z"/></svg>View on the App Store</span>
       </div>
-    </div>
+    </a>
+  </section>
 
+  <section class="sec" id="games">
+    <div class="bar"><h2>Games</h2><small>PLAY IN BROWSER</small></div>
+    <p class="intro">Complete games with goals, choices and endings: a narrative drive, two cooking games and a volleyball game you can play or coach.</p>
     <div class="grid">
-      <a class="card big" href="games/last-bus-home/" data-cat="story">
+      <a class="card big" href="games/last-bus-home/">
         <div class="shot"><img src="images/last-bus-home.jpg" alt="A purple night bus waiting at a rainy neon depot" loading="lazy"><span class="play">PLAY ▸</span></div>
         <div class="body">
           <h3>Last Bus Home</h3>
           <p>Drive the night loop on Route 9 the week it gets cut. Talk to regulars, notice what they carry in the rearview mirror, and decide when to bend the rules, all while keeping the bus on schedule.</p>
-          <div class="tags"><span class="g">Narrative</span><span>Branching dialogue</span><span>Canvas 2D</span><span>Synth audio</span></div>
+          <div class="tags"><span class="g">Narrative</span><span>Branching dialogue</span><span>State machine</span><span>Canvas 2D</span><span>Web Audio</span></div>
         </div>
       </a>
-
-      <a class="card big" href="games/low-tide-cafe/" data-cat="cozy">
+      <a class="card big" href="games/low-tide-cafe/">
         <div class="shot"><img src="images/low-tide-cafe.jpg" alt="A seaside café on a pier with otters, octopuses and fish customers" loading="lazy"><span class="play">PLAY ▸</span></div>
         <div class="body">
           <h3>Low Tide Café</h3>
           <p>Run a seaside café for sea creatures. Cook at the grill, stove and oven, mix drinks, and get each order to the pass before it burns or your guests lose patience.</p>
-          <div class="tags"><span class="g">Cozy</span><span>Cooking</span><span>Time management</span><span>Illustrated art</span></div>
+          <div class="tags"><span class="g">Cozy</span><span>Time management</span><span>Game loop</span><span>Illustrated art</span></div>
         </div>
       </a>
-
-      <a class="card" href="games/grandmas-kitchen/" data-cat="cozy">
+      <a class="card big" href="games/grandmas-kitchen/">
         <div class="shot"><img src="images/grandmas-kitchen.jpg" alt="A warm, hand-drawn retro kitchen with a title card" loading="lazy"><span class="play">PLAY ▸</span></div>
         <div class="body">
           <h3>Grandma's Kitchen</h3>
           <p>A gentle cooking game in a hand-drawn 70s kitchen. Open the recipe book, cook her recipes with your own hands, and turn on the radio while you work.</p>
-          <div class="tags"><span class="g">Cozy</span><span>Hand-drawn</span><span>Original music</span></div>
+          <div class="tags"><span class="g">Cozy</span><span>Procedural drawing</span><span>Synthesized music</span></div>
         </div>
       </a>
-
-      <a class="card" href="games/pixel-rally/" data-cat="sports">
+      <a class="card big" href="games/pixel-rally/">
         <div class="shot"><img src="images/pixel-rally.jpg" alt="Pixel Rally title screen with court and role choices" loading="lazy"><span class="play">PLAY ▸</span></div>
         <div class="body">
           <h3>Pixel Rally</h3>
           <p>Volleyball on three courts: park fours, beach doubles and indoor sixes. Play as a player, coach the team, or just watch. The rally runs itself until it's your touch.</p>
-          <div class="tags"><span class="g">Sports</span><span>Timing</span><span>3D pixel art</span></div>
+          <div class="tags"><span class="g">Sports</span><span>Physics</span><span>AI teammates</span><span>three.js</span></div>
         </div>
       </a>
+    </div>
+  </section>
 
-      <a class="card" href="games/lane-eight/" data-cat="sports">
+  <section class="sec" id="toys">
+    <div class="bar"><h2>Web toys</h2><small>INTERACTIVE DIORAMAS</small></div>
+    <p class="intro">Smaller pieces to poke at. Each is a tiny 3D world with its own simulation, drawn through a custom pixel-art renderer. Turn the camera, change the weather or the time of day, and watch it play out.</p>
+    <div class="grid">
+      <a class="card " href="games/lane-eight/">
         <div class="shot"><img src="images/lane-eight.jpg" alt="An isometric pixel-art track stadium" loading="lazy"><span class="play">PLAY ▸</span></div>
         <div class="body">
           <h3>Lane Eight</h3>
           <p>A pixel-art track meet. Back a runner before the gun, then watch sprints, hurdles, relays and field events play out under changing weather and light.</p>
-          <div class="tags"><span class="g">Sports</span><span>Simulation</span><span>3D pixel art</span></div>
+          <div class="tags"><span class="g">Simulation</span><span>Race physics</span><span>three.js</span></div>
         </div>
       </a>
-
-      <a class="card big" href="games/rec-six/" data-cat="sports">
+      <a class="card " href="games/rec-six/">
         <div class="shot"><img src="images/rec-six.jpg" alt="An isometric pixel-art gym with a six-on-six volleyball match" loading="lazy"><span class="play">PLAY ▸</span></div>
         <div class="body">
           <h3>Rec Six</h3>
           <p>Open-gym six-on-six volleyball in a pixel-art rec center. Switch from day to sunset to night under the gym lights, and click the court to call the next attack.</p>
-          <div class="tags"><span class="g">Sports</span><span>Diorama</span><span>Custom renderer</span></div>
+          <div class="tags"><span class="g">Diorama</span><span>Lighting</span><span>GLSL shaders</span></div>
         </div>
       </a>
-
-      <a class="card big" href="games/park-fours/" data-cat="sports">
+      <a class="card " href="games/park-fours/">
         <div class="shot"><img src="images/park-fours.jpg" alt="An isometric pixel-art park with a grass volleyball game" loading="lazy"><span class="play">PLAY ▸</span></div>
         <div class="body">
           <h3>Park Fours</h3>
           <p>Co-ed grass volleyball on a slice of city park, with a pond, a sleepy dog and a flip scoreboard. Change the time of day and the wind, and call where the next attack lands.</p>
-          <div class="tags"><span class="g">Sports</span><span>Diorama</span><span>3D pixel art</span></div>
+          <div class="tags"><span class="g">Diorama</span><span>Weather</span><span>Pixel-art renderer</span></div>
         </div>
       </a>
     </div>
@@ -198,14 +221,24 @@ footer a{color:var(--ink)}
   <section class="about" id="about">
     <h2>About</h2>
     <div>
-      <p>I'm Rya, a game designer who likes small, warm games: the kind you can play in a lunch break and still think about later. I care about tiny details, the crossword on a passenger's lap, the steam off a pot, the way a crowd leans in on a long rally.</p>
-      <p>Every game here runs in the browser with no installs, so you can click a card and play.</p>
-      <ul>
-        <li>Narrative and dialogue design</li>
-        <li>Cozy and cooking game loops</li>
-        <li>Pixel-art 3D dioramas</li>
-        <li>Sound and music for games</li>
-      </ul>
+      <p>I'm Rya, a software engineer and game designer. I like owning a project from the first idea to the version people actually use, whether that's an app on the App Store or a game that runs in a browser tab.</p>
+      <p>On the engineering side I build complete, self-contained projects: state machines that drive branching stories, physics and AI for sports sims, real-time 3D rendering and shaders, and sound made entirely in code. On the design side I care about the small details that make something feel good to use, like the crossword on a passenger's lap or the steam off a pot.</p>
+      <div class="skills">
+        <div><h4>ENGINEERING</h4><ul>
+          <li>JavaScript, HTML, CSS</li>
+          <li>iOS app development and App Store release</li>
+          <li>three.js, WebGL and GLSL shaders</li>
+          <li>Canvas 2D and Web Audio</li>
+          <li>Game loops, physics and AI behavior</li>
+        </ul></div>
+        <div><h4>DESIGN</h4><ul>
+          <li>Narrative and branching dialogue</li>
+          <li>Core loops and game feel</li>
+          <li>UI and UX for apps and games</li>
+          <li>Pixel art and visual direction</li>
+          <li>Sound and music</li>
+        </ul></div>
+      </div>
     </div>
   </section>
 
@@ -214,12 +247,5 @@ footer a{color:var(--ink)}
     <span><a href="https://github.com/ryaskye">github.com/ryaskye</a></span>
   </footer>
 </div>
-<script>
-const btns=document.querySelectorAll('.chips button'),cards=document.querySelectorAll('.card');
-btns.forEach(b=>b.addEventListener('click',()=>{
-  btns.forEach(x=>x.setAttribute('aria-pressed',x===b));
-  const f=b.dataset.f;cards.forEach(c=>c.hidden=!(f==='all'||c.dataset.cat===f));
-}));
-</script>
 </body>
 </html>
