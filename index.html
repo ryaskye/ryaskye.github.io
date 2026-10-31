@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rya McKinnon · Game Designer</title>
+<meta name="description" content="Playable browser games by Rya McKinnon: narrative, cozy cooking and pixel-art sports.">
+<meta property="og:title" content="Rya McKinnon · Game Designer">
+<meta property="og:description" content="Seven playable browser games: narrative, cozy cooking and pixel-art sports.">
+<meta property="og:image" content="images/low-tide-cafe.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' rx='3' fill='%23ff7a45'/><rect x='4' y='4' width='3' height='3' fill='%2316121f'/><rect x='9' y='4' width='3' height='3' fill='%2316121f'/><rect x='4' y='10' width='8' height='2' fill='%2316121f'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Silkscreen&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#16121f; --bg2:#1f1a2b; --card:#241e33; --line:#352c4a;
+  --ink:#f3eee6; --muted:#a99fbd; --accent:#ff7a45; --accent2:#ffd166; --teal:#4fd1c5;
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --pix:"Silkscreen",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding:0 max(20px,env(safe-area-inset-left,0px))}
+
+/* header */
+header{padding:28px 0 0}
+nav{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.logo{font-family:var(--pix);font-size:14px;letter-spacing:.06em;text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo i{width:14px;height:14px;background:var(--accent);display:inline-block;box-shadow:4px 4px 0 var(--accent2)}
+nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0;font-size:15px}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero{padding:88px 0 64px;display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:end}
+.kicker{font-family:var(--pix);font-size:12px;letter-spacing:.14em;color:var(--accent2);margin:0 0 18px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(44px,7vw,92px);line-height:.95;letter-spacing:-.03em;margin:0;text-wrap:balance}
+h1 em{font-style:normal;color:var(--accent)}
+.hero p.lede{font-size:19px;color:var(--muted);max-width:44ch;margin:22px 0 0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.stats div{background:var(--bg2);padding:18px 16px}
+.stats b{display:block;font-family:var(--display);font-size:34px;line-height:1;font-weight:800}
+.stats span{font-size:13px;color:var(--muted)}
+
+/* filter */
+.bar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding:22px 0}
+.bar h2{font-family:var(--display);font-size:28px;margin:0;font-weight:700}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips button{font:500 14px var(--body);color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer}
+.chips button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chips button:hover{border-color:var(--muted)}
+button:focus-visible,a:focus-visible{outline:2px solid var(--accent2);outline-offset:3px}
+
+/* grid */
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:22px;padding-bottom:40px}
+.card{grid-column:span 2;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;transition:transform .18s ease,border-color .18s ease}
+.card.big{grid-column:span 3}
+.card:hover{transform:translateY(-4px);border-color:#5a4b7c}
+.card[hidden]{display:none}
+.shot{position:relative;aspect-ratio:16/9;overflow:hidden;background:#0d0b13}
+.shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.card:hover .shot img{transform:scale(1.04)}
+.play{position:absolute;right:12px;bottom:12px;font-family:var(--pix);font-size:11px;letter-spacing:.08em;background:var(--accent);color:#16121f;padding:7px 10px;border-radius:6px;opacity:0;transform:translateY(6px);transition:all .18s ease}
+.card:hover .play,.card:focus-visible .play{opacity:1;transform:none}
+.body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.body h3{font-family:var(--display);font-weight:700;font-size:24px;margin:0;letter-spacing:-.01em}
+.body p{margin:0;color:var(--muted);font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+.tags span{font-size:12px;font-weight:600;letter-spacing:.02em;padding:4px 9px;border-radius:6px;background:var(--bg2);color:var(--muted);border:1px solid var(--line)}
+.tags span.g{color:var(--teal);border-color:#2b4d55}
+
+/* about */
+.about{border-top:1px solid var(--line);padding:56px 0 64px;display:grid;grid-template-columns:.8fr 1.2fr;gap:48px}
+.about h2{font-family:var(--display);font-size:36px;margin:0;font-weight:800;letter-spacing:-.02em}
+.about p{margin:0 0 14px;color:var(--muted);max-width:62ch}
+.about ul{margin:6px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 24px}
+.about li{padding-left:18px;position:relative;font-size:15px}
+.about li::before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;background:var(--accent)}
+footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--ink)}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;padding-top:56px}
+  .card,.card.big{grid-column:span 3}
+  .about{grid-template-columns:1fr;gap:24px}
+}
+@media (max-width:620px){
+  nav ul{display:none}
+  .card,.card.big{grid-column:1/-1}
+  .about ul{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <nav>
+      <a class="logo" href="#top"><i></i>RYA MCKINNON</a>
+      <ul><li><a href="#games">Games</a></li><li><a href="#about">About</a></li><li><a href="https://github.com/ryaskye">GitHub</a></li></ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="top">
+    <div>
+      <p class="kicker">GAME DESIGNER · PORTFOLIO</p>
+      <h1>Small games with <em>big feelings</em>.</h1>
+      <p class="lede">Narrative drives, cozy kitchens and pixel-art sports, all playable right here in your browser. No downloads, no installs.</p>
+    </div>
+    <div class="stats" aria-label="At a glance">
+      <div><b>7</b><span>playable games</span></div>
+      <div><b>3</b><span>genres</span></div>
+      <div><b>0</b><span>installs needed</span></div>
+    </div>
+  </section>
+
+  <section id="games">
+    <div class="bar">
+      <h2>Games</h2>
+      <div class="chips" role="group" aria-label="Filter games">
+        <button aria-pressed="true" data-f="all">All</button>
+        <button aria-pressed="false" data-f="story">Story</button>
+        <button aria-pressed="false" data-f="cozy">Cozy</button>
+        <button aria-pressed="false" data-f="sports">Sports</button>
+      </div>
+    </div>
+
+    <div class="grid">
+      <a class="card big" href="games/last-bus-home/" data-cat="story">
+        <div class="shot"><img src="images/last-bus-home.jpg" alt="A purple night bus waiting at a rainy neon depot" loading="lazy"><span class="play">PLAY ▸</span></div>
+        <div class="body">
+          <h3>Last Bus Home</h3>
+          <p>Drive the night loop on Route 9 the week it gets cut. Talk to regulars, notice what they carry in the rearview mirror, and decide when to bend the rules, all while keeping the bus on schedule.</p>
+          <div class="tags"><span class="g">Narrative</span><span>Branching dialogue</span><span>Canvas 2D</span><span>Synth audio</span></div>
+        </div>
+      </a>
+
+      <a class="card big" href="games/low-tide-cafe/" data-cat="cozy">
+        <div class="shot"><img src="images/low-tide-cafe.jpg" alt="A seaside café on a pier with otters, octopuses and fish customers" loading="lazy"><span class="play">PLAY ▸</span></div>
+        <div class="body">
+          <h3>Low Tide Café</h3>
+          <p>Run a seaside café for sea creatures. Cook at the grill, stove and oven, mix drinks, and get each order to the pass before it burns or your guests lose patience.</p>
+          <div class="tags"><span class="g">Cozy</span><span>Cooking</span><span>Time management</span><span>Illustrated art</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="games/grandmas-kitchen/" data-cat="cozy">
+        <div class="shot"><img src="images/grandmas-kitchen.jpg" alt="A warm, hand-drawn retro kitchen with a title card" loading="lazy"><span class="play">PLAY ▸</span></div>
+        <div class="body">
+          <h3>Grandma's Kitchen</h3>
+          <p>A gentle cooking game in a hand-drawn 70s kitchen. Open the recipe book, cook her recipes with your own hands, and turn on the radio while you work.</p>
+          <div class="tags"><span class="g">Cozy</span><span>Hand-drawn</span><span>Original music</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="games/pixel-rally/" data-cat="sports">
+        <div class="shot"><img src="images/pixel-rally.jpg" alt="Pixel Rally title screen with court and role choices" loading="lazy"><span class="play">PLAY ▸</span></div>
+        <div class="body">
+          <h3>Pixel Rally</h3>
+          <p>Volleyball on three courts: park fours, beach doubles and indoor sixes. Play as a player, coach the team, or just watch. The rally runs itself until it's your touch.</p>
+          <div class="tags"><span class="g">Sports</span><span>Timing</span><span>3D pixel art</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="games/lane-eight/" data-cat="sports">
+        <div class="shot"><img src="images/lane-eight.jpg" alt="An isometric pixel-art track stadium" loading="lazy"><span class="play">PLAY ▸</span></div>
+        <div class="body">
+          <h3>Lane Eight</h3>
+          <p>A pixel-art track meet. Back a runner before the gun, then watch sprints, hurdles, relays and field events play out under changing weather and light.</p>
+          <div class="tags"><span class="g">Sports</span><span>Simulation</span><span>3D pixel art</span></div>
+        </div>
+      </a>
+
+      <a class="card big" href="games/rec-six/" data-cat="sports">
+        <div class="shot"><img src="images/rec-six.jpg" alt="An isometric pixel-art gym with a six-on-six volleyball match" loading="lazy"><span class="play">PLAY ▸</span></div>
+        <div class="body">
+          <h3>Rec Six</h3>
+          <p>Open-gym six-on-six volleyball in a pixel-art rec center. Switch from day to sunset to night under the gym lights, and click the court to call the next attack.</p>
+          <div class="tags"><span class="g">Sports</span><span>Diorama</span><span>Custom renderer</span></div>
+        </div>
+      </a>
+
+      <a class="card big" href="games/park-fours/" data-cat="sports">
+        <div class="shot"><img src="images/park-fours.jpg" alt="An isometric pixel-art park with a grass volleyball game" loading="lazy"><span class="play">PLAY ▸</span></div>
+        <div class="body">
+          <h3>Park Fours</h3>
+          <p>Co-ed grass volleyball on a slice of city park, with a pond, a sleepy dog and a flip scoreboard. Change the time of day and the wind, and call where the next attack lands.</p>
+          <div class="tags"><span class="g">Sports</span><span>Diorama</span><span>3D pixel art</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h2>About</h2>
+    <div>
+      <p>I'm Rya, a game designer who likes small, warm games: the kind you can play in a lunch break and still think about later. I care about tiny details, the crossword on a passenger's lap, the steam off a pot, the way a crowd leans in on a long rally.</p>
+      <p>Every game here runs in the browser with no installs, so you can click a card and play.</p>
+      <ul>
+        <li>Narrative and dialogue design</li>
+        <li>Cozy and cooking game loops</li>
+        <li>Pixel-art 3D dioramas</li>
+        <li>Sound and music for games</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Rya McKinnon</span>
+    <span><a href="https://github.com/ryaskye">github.com/ryaskye</a></span>
+  </footer>
+</div>
+<script>
+const btns=document.querySelectorAll('.chips button'),cards=document.querySelectorAll('.card');
+btns.forEach(b=>b.addEventListener('click',()=>{
+  btns.forEach(x=>x.setAttribute('aria-pressed',x===b));
+  const f=b.dataset.f;cards.forEach(c=>c.hidden=!(f==='all'||c.dataset.cat===f));
+}));
+</script>
+</body>
+</html>
